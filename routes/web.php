@@ -13,3 +13,5 @@ Route::get('/cartelera/crear', [PeliculaController::class, 'create']);
 
 // Recibir los datos y guardarlos
 Route::post('/cartelera/guardar', [PeliculaController::class, 'store']);
+// Ruta para ver los detalles de una película concreta
+Route::get('/pelicula/{id}', [PeliculaController::class, 'show']);

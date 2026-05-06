@@ -37,4 +37,11 @@ class PeliculaController extends Controller
         // Redirigimos de vuelta a la cartelera para verla ya añadida
         return redirect('/cartelera');
     }
+
+    // Muestra los detalles de una sola película
+    public function show($id)
+    {
+        $pelicula = Pelicula::findOrFail($id); 
+        return view('detalle', compact('pelicula')); 
+    }
 }

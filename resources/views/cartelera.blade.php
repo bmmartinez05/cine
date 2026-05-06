@@ -9,13 +9,20 @@
     
 @foreach($peliculas as $pelicula)
         <div style="margin-bottom: 20px;">
-            <h3>{{ $pelicula->titulo }}</h3>
             
-            <!-- Aquí usamos la función asset() de Laravel para buscar en la carpeta public -->
-            <img src="{{ asset('carteles/' . $pelicula->foto_cartel) }}" width="150" alt="Cartel">
+            <!-- NUEVO: Envolvemos el título y la imagen en un enlace ('a href') -->
+            <a href="/pelicula/{{ $pelicula->id_pelicula }}" style="text-decoration: none; color: black;">
+                <h3>{{ $pelicula->titulo }}</h3>
+                <img src="{{ asset('carteles/' . $pelicula->foto_cartel) }}" width="150" alt="Cartel">
+            </a>
             
-            <p><strong>Duración:</strong> {{ $pelicula->duracion }} minutos</p>
-            <p><strong>Sinopsis:</strong> {{ $pelicula->sinopsis }}</p>
+            <p><strong>Horarios disponibles:</strong></p>
+            <ul>
+                @foreach($pelicula->sesiones as $sesion)
+                    <li>{{ $sesion->hora_inicio }}</li>
+                @endforeach
+            </ul>
+
         </div>
         <hr>
     @endforeach
