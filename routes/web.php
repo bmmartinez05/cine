@@ -15,3 +15,6 @@ Route::get('/cartelera/crear', [PeliculaController::class, 'create']);
 Route::post('/cartelera/guardar', [PeliculaController::class, 'store']);
 // Ruta para ver los detalles de una película concreta
 Route::get('/pelicula/{id}', [PeliculaController::class, 'show']);
+// Ruta que recibe el ID de la sesión y usa el controlador
+Route::get('/comprar/{id}', [CompraController::class, 'elegirButaca'])->name('comprar');
+

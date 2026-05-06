@@ -16,10 +16,15 @@
     <p><strong>Sinopsis:</strong> {{ $pelicula->sinopsis }}</p>
     
     <p><strong>Horarios:</strong></p>
-    <ul>
+<ul>
         @foreach($pelicula->sesiones as $sesion)
-            <!-- Dejo el botón de Comprar preparado para tu siguiente paso del proyecto -->
-            <li>{{ $sesion->hora_inicio }} <button>Comprar entradas</button></li>
+            <li>
+                {{ $sesion->hora_inicio }} 
+                <!-- Envolvemos el botón en un enlace pasándole el ID de la sesión -->
+                <a href="/comprar/{{ $sesion->id_sesion }}">
+                    <button style="cursor: pointer;">Comprar entradas</button>
+                </a>
+            </li>
         @endforeach
     </ul>
 
