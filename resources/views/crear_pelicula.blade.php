@@ -1,31 +1,51 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Añadir Película</title>
-</head>
-<body>
-    <h1>Añadir nueva película</h1>
+@extends('layouts.app')
+
+@section('title', 'Añadir Nueva Película')
+
+@section('content')
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Añadir nueva película</h1>
     
-    <!-- El formulario envía los datos por POST a la ruta que creamos -->
     <form action="/cartelera/guardar" method="POST">
         
-        <!-- ¡SÚPER IMPORTANTE! Esto es un escudo de seguridad de Laravel. Si no pones @csrf, dará error -->
         @csrf
         
-        <label>Título:</label><br>
-        <input type="text" name="titulo" required><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">Título:</label>
+            <input type="text" name="titulo" required 
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
         
-        <label>Sinopsis:</label><br>
-        <textarea name="sinopsis"></textarea><br><br>
+        <div class="mb-4">
+            <label class="block text-gray-700 font-bold mb-2">Sinopsis:</label>
+            <textarea name="sinopsis" rows="4"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+        </div>
         
-        <label>Duración (en minutos):</label><br>
-        <input type="number" name="duracion"><br><br>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2">Duración (minutos):</label>
+                <input type="number" name="duracion"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            
+            <div class="mb-4">
+                <label class="block text-gray-700 font-bold mb-2">Nombre del cartel:</label>
+                <input type="text" name="foto_cartel" placeholder="ejemplo: matrix.jpg"
+                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+        </div>
         
-        <label>Nombre del cartel (ejemplo: matrix.jpg):</label><br>
-        <input type="text" name="foto_cartel"><br><br>
-        
-        <button type="submit">Guardar Película</button>
+        <div class="mt-6 flex items-center justify-between">
+            <button type="submit" 
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition duration-200 cursor-pointer">
+                Guardar Película
+            </button>
+            
+            <a href="/cartelera" class="text-sm text-gray-600 hover:text-blue-500 underline">
+                Cancelar y volver
+            </a>
+        </div>
     </form>
-</body>
-</html>
+</div>
+@endsection

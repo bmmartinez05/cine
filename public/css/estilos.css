@@ -1,0 +1,179 @@
+/* --- VARIABLES CORPORATIVAS --- */
+:root {
+    --sapphire: #3C5070;
+    --royal-blue: #112250;
+    --quicksand: #E0C68F;
+    --blanco-puro: #ffffff;
+    --gris-fondo: #f1f5f9;
+    --verde-libre: #27ae60;
+    --rojo-ocupado: #c0392b;
+}
+
+/* --- RESET Y ESTRUCTURA (Pág. 21 y 31) --- */
+body {
+    background-color: var(--gris-fondo);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--royal-blue);
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.nav-top a {
+    color: var(--quicksand);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.wrapper {
+    display: flex;
+    flex: 1;
+}
+
+/* --- MENÚ LATERAL --- */
+.sidebar {
+    width: 220px;
+    background: white;
+    border-right: 1px solid #e2e8f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--sapphire);
+    padding: 12px;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    background-color: var(--gris-fondo);
+    padding-left: 20px;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+    flex: 1;
+    padding: 30px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* --- TABLAS Y FORMULARIOS --- */
+.tabla-cine {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tabla-cine th {
+    background: var(--sapphire);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-cine td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* --- BUTACAS INTERACTIVAS --- */
+.pantalla {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 30px;
+    letter-spacing: 10px;
+    border-radius: 4px;
+}
+
+.fila {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.btn-butaca {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px 5px 12px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-libre { background-color: var(--verde-libre); color: white; }
+.btn-ocupada { background-color: var(--rojo-ocupado); color: white; cursor: not-allowed; opacity: 0.5; }
+.btn-seleccionada { background-color: var(--quicksand) !important; color: var(--royal-blue) !important; transform: scale(1.1); }
+
+/* --- FOOTER --- */
+footer {
+    background: var(--royal-blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a { color: var(--quicksand); margin: 0 10px; text-decoration: none; }
+
+/* --- ADAPTABLE (Móvil) --- */
+@media (max-width: 768px) {
+    .wrapper { flex-direction: column; }
+    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
+}
+
+/* Botones especiales de Admin en el Header */
+.btn-admin-header {
+    background-color: var(--quicksand);
+    color: var(--royal-blue) !important;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-admin-header:hover {
+    background-color: white;
+    transform: translateY(-2px);
+}
+
+/* Contenedor de usuario */
+.user-info {
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 20px;
+}
