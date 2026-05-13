@@ -31,7 +31,6 @@
         <div>
             <label class="block text-sm font-medium text-gray-300 mb-1">Contraseña:</label>
             <input type="password" name="password" maxlength="25" class="w-full bg-slate-900 border border-slate-700 rounded p-2 text-white focus:border-blue-500 outline-none" required>
-            <p class="text-xs text-gray-500 mt-1">Máximo 25 caracteres (según base de datos).</p>
         </div>
 
         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded transition shadow-lg mt-4">

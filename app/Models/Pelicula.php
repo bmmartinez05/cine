@@ -14,4 +14,9 @@ class Pelicula extends Model
     {
         return $this->hasMany(Sesion::class, 'id_pelicula', 'id_pelicula');
     }
+
+    public function sesion()
+    {
+        return $this->belongsTo(Sesion::class, 'id_sesion');
+    }
 }

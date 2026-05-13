@@ -14,7 +14,7 @@ class Sesion extends Model
     public function pelicula()
     {
         // Una sesión pertenece a una película
-        return $this->belongsTo(Pelicula::class, 'id_pelicula', 'id_pelicula');
+        return $this->belongsTo(Pelicula::class, 'id_pelicula');
     }
 
     // Cable para conectar con la tabla Salas

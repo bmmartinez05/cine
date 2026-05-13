@@ -5,11 +5,6 @@
 @section('content')
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">Listado de Sesiones</h1>
-        
-        {{-- Botón que redirige a la vista de crear --}}
-        <a href="{{ url('/sesiones/crear') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            + Nueva Sesión
-        </a>
     </div>
     
     <table class="w-full border-collapse">

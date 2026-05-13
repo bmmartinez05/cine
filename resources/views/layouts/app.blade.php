@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Premium</title>
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}?v={{ time() }}">
 </head>
 <body>
 <header>
@@ -13,37 +13,41 @@
     </div>
 
     <nav class="nav-top">
-        {{-- Enlaces comunes para todos los usuarios --}}
-        <a href="{{ url('/sesiones') }}">📅 Sesiones</a>
-        <a href="{{ url('/cartelera') }}">🎬 Cartelera</a>
-
-        {{-- Lógica de Administración: Solo se muestra si el usuario es Admin --}}
-        @auth
-            @if(Auth::user()->role === 'admin') {{-- Ajusta 'role' según tu base de datos --}}
-                <a href="{{ url('/peliculas/crear') }}" class="btn-admin-header">➕ Nueva Película</a>
-                <a href="{{ url('/sesiones/crear') }}" class="btn-admin-header">➕ Nueva Sesión</a>
-            @endif
-        @endauth
-
-        {{-- Información del Usuario --}}
         <div class="user-info" style="margin-left: 20px; display: inline-block;">
-            @auth
+            
+            {{-- Comprobamos si hay sesión iniciada manualmente --}}
+            @if(Session::has('usuario_dni'))
                 <span style="color: white; font-weight: normal;">Hola, </span>
-                <span style="color: var(--quicksand); font-weight: bold;">{{ Auth::user()->name }}</span>
-                <a href="{{ url('/logout') }}" style="font-size: 0.8rem; color: #ff9f9f; margin-left: 10px;">(Salir)</a>
+                <span style="color: var(--quicksand); font-weight: bold; margin-right: 8px;">{{ Session::get('usuario_nombre') }}</span>
+                
+                {{-- Círculo azul con la inicial del usuario (Hecho con CSS normal, sin Tailwind) --}}
+                <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background-color: #2563eb; color: white; border-radius: 50%; font-weight: bold; font-size: 14px; vertical-align: middle; margin-right: 8px;">
+                    {{ substr(Session::get('usuario_nombre'), 0, 1) }}
+                </span>
+
+                <a href="{{ url('/logout-manual') }}" style="font-size: 0.85rem; color: #ff9f9f; text-decoration: underline;">Salir</a>
+            
+            {{-- Si NO hay sesión, mostramos Iniciar Sesión --}}
             @else
                 <a href="{{ url('/login') }}">Iniciar Sesión</a>
-            @endauth
+            @endif
+            
         </div>
     </nav>
 </header>
 
     <div class="wrapper">
         <aside class="sidebar">
-            <a href="{{ url('/') }}">🏠 Inicio</a>
-            <a href="#">🎬 Estrenos</a>
-            <a href="#">🎟️ Mis Reservas</a>
-            <a href="#">👤 Perfil</a>
+            <a href="{{ url('/inicio') }}">🏠 Inicio</a>
+            <a href="{{ url('/sesiones') }}">📅 Sesiones</a>
+            <a href="{{ url('/cartelera') }}">🎬 Cartelera</a>
+            <a href="{{ url('/estrenos') }}">❗ Estrenos</a>
+            <a href="{{ url('/reservas') }}">🎟️ Mis Reservas</a>
+            <a href="{{ url('/perfil') }}">👤 Perfil</a>
+            @if(Session::get('usuario_dni') === '12345678Z')
+            <a href="{{ url('/cartelera/crear') }}" class="btn-admin-header">➕ Nueva Película</a>
+            <a href="{{ url('/sesiones/crear') }}" class="btn-admin-header">➕ Nueva Sesión</a>
+            @endif
         </aside>
 
         <main>

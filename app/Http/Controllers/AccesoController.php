@@ -64,4 +64,16 @@ public function entrar(Request $request)
         Session::forget(['usuario_dni', 'usuario_nombre']);
         return redirect('/login');
     }
+
+    public function verPerfil()
+    {
+        $dniSesion = \Illuminate\Support\Facades\Session::get('usuario_dni');
+
+        if (!$dniSesion) {
+            return redirect('/login')->with('error', 'Debes iniciar sesión para ver tu perfil.');
+        }
+
+        $usuario = \Illuminate\Support\Facades\DB::table('USUARIOS')->where('DNI', $dniSesion)->first();
+        return view('sesion_usuario.perfil', compact('usuario'));
+    }
 }

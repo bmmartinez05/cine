@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PeliculaController; // <-- 1. Añade esto arriba del todo
-use App\Http\Controllers\SesionController; // <-- ¡AÑADE ESTA LÍNEA!
-// Te recomiendo añadir también la del EntradaController que lo tienes más abajo y te dará error luego:
+use App\Http\Controllers\SesionController; 
 use App\Http\Controllers\EntradasController;
 use App\Http\Controllers\AccesoController;
+use App\Http\Controllers\EstrenosController;
+use App\Http\Controllers\CompraController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,3 +34,17 @@ Route::get('/logout-manual', [AccesoController::class, 'salir']); // Usamos GET 
 
 Route::get('/registro', [AccesoController::class, 'mostrarRegistro']);
 Route::post('/registro', [AccesoController::class, 'registrar']);
+
+Route::get('/inicio', function () { return view('inicio'); });
+Route::get('/estrenos', [EstrenosController::class, 'index']); 
+Route::get('/perfil', [AccesoController::class, 'verPerfil']);
+
+Route::get('/seleccion/{id}', [CompraController::class, 'elegirButaca'])->name('seleccion.butacas');
+
+Route::post('/ir-al-pago', [CompraController::class, 'mostrarBanco'])->name('compra.banco');
+
+Route::post('/finalizar-compra', [CompraController::class, 'finalizarCompra'])->name('compra.finalizar');
+
+Route::get('/compra-exitosa', function () {return view('exito');})->name('compra.exito');
+
+Route::get('/reservas', [CompraController::class, 'misReservas'])->name('mis.reservas');

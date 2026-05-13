@@ -9,7 +9,7 @@
     --rojo-ocupado: #c0392b;
 }
 
-/* --- RESET Y ESTRUCTURA (Pág. 21 y 31) --- */
+/* --- RESET Y ESTRUCTURA --- */
 body {
     background-color: var(--gris-fondo);
     font-family: 'Segoe UI', sans-serif;
@@ -26,7 +26,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-top a {
@@ -77,7 +77,7 @@ main {
     background: white;
     padding: 25px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* --- TABLAS Y FORMULARIOS --- */
@@ -123,6 +123,8 @@ main {
     justify-content: center;
     gap: 8px;
     margin-bottom: 8px;
+    flex-wrap: wrap;
+    /* AJUSTE: Permite que las butacas bajen de fila en móviles */
 }
 
 .btn-butaca {
@@ -135,9 +137,23 @@ main {
     transition: 0.3s;
 }
 
-.btn-libre { background-color: var(--verde-libre); color: white; }
-.btn-ocupada { background-color: var(--rojo-ocupado); color: white; cursor: not-allowed; opacity: 0.5; }
-.btn-seleccionada { background-color: var(--quicksand) !important; color: var(--royal-blue) !important; transform: scale(1.1); }
+.btn-libre {
+    background-color: var(--verde-libre);
+    color: white;
+}
+
+.btn-ocupada {
+    background-color: var(--rojo-ocupado);
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-seleccionada {
+    background-color: var(--quicksand) !important;
+    color: var(--royal-blue) !important;
+    transform: scale(1.1);
+}
 
 /* --- FOOTER --- */
 footer {
@@ -147,12 +163,56 @@ footer {
     text-align: center;
 }
 
-footer a { color: var(--quicksand); margin: 0 10px; text-decoration: none; }
+footer a {
+    color: var(--quicksand);
+    margin: 0 10px;
+    text-decoration: none;
+}
 
 /* --- ADAPTABLE (Móvil) --- */
 @media (max-width: 768px) {
-    .wrapper { flex-direction: column; }
-    .sidebar { width: 100%; border-right: none; border-bottom: 1px solid #eee; }
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    /* AJUSTE: Header vertical */
+    .nav-top {
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-top a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        box-sizing: border-box;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    /* AJUSTE: Menos margen en móviles */
+
+    /* AJUSTE: Evita que la tabla de historial rompa el diseño */
+    .card {
+        overflow-x: auto;
+    }
+
+    .tabla-cine {
+        min-width: 600px;
+    }
 }
 
 /* Botones especiales de Admin en el Header */
@@ -174,6 +234,6 @@ footer a { color: var(--quicksand); margin: 0 10px; text-decoration: none; }
 
 /* Contenedor de usuario */
 .user-info {
-    border-left: 1px solid rgba(255,255,255,0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
     padding-left: 20px;
 }
