@@ -1,0 +1,77 @@
+/* --- VARIABLES GLOBALES Y RESET --- */
+:root {
+    --sapphire: #3C5070;
+    --royal-blue: #112250;
+    --quicksand: #E0C68F;
+    --blanco-puro: #ffffff;
+    --gris-fondo: #f1f5f9;
+    --verde-libre: #27ae60;
+    --rojo-ocupado: #c0392b;
+}
+
+body {
+    background-color: var(--gris-fondo);
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* --- FORMULARIOS BASE --- */
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-grupo label {
+    color: var(--sapphire);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.btn-principal {
+    background: var(--royal-blue);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-principal:hover {
+    background: var(--sapphire);
+}
+
+.btn-secundario {
+    background: var(--quicksand);
+    color: var(--royal-blue);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn-secundario:hover {
+    opacity: 0.8;
+}

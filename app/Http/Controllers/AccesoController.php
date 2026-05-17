@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 class AccesoController extends Controller
 {
-    // Esta es la función que te falta o que tiene un nombre distinto
     public function mostrarLogin() 
     {
         return view('sesion_usuario.login');
@@ -17,18 +16,17 @@ class AccesoController extends Controller
 
 public function entrar(Request $request) 
 {
-    // Buscamos al usuario
+    // Busca al usuario
     $usuario = DB::table('USUARIOS')->where('EMAIL', $request->email)->first();
 
     if ($usuario) {
-        // Convertimos el objeto a array para no pelear con las mayúsculas/minúsculas
+        // Convierte el objeto a array para no tener problemas con mayusculas y minusculas
         $uArray = (array)$usuario;
         
-        // Buscamos la contraseña probando ambas opciones
+        // Busca la contraseña probando ambas opciones
         $passBD = $uArray['PASSWORD'] ?? $uArray['password'] ?? null;
 
         if ($passBD && Hash::check($request->password, $passBD)) {
-            // Hacemos lo mismo para el DNI y el USERNAME
             Session::put('usuario_dni', $uArray['DNI'] ?? $uArray['dni']);
             Session::put('usuario_nombre', $uArray['USERNAME'] ?? $uArray['username']);
             

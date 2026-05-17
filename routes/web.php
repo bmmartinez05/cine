@@ -16,14 +16,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/sesiones/crear', [SesionController::class, 'create']);
     Route::post('/sesiones/guardar', [SesionController::class, 'store']);
     
-    // Películas (suponiendo que tienes estos métodos)
     Route::get('/cartelera/crear', [PeliculaController::class, 'create']);
     Route::post('/cartelera/guardar', [PeliculaController::class, 'store']);
 
 });
 
 Route::get('/cartelera', [PeliculaController::class, 'index']);
-// Ruta para ver los detalles de una película concreta
 Route::get('/pelicula/{id}', [PeliculaController::class, 'show']);
 Route::post('/reservar-butaca', [EntradasController::class, 'reservar'])->name('entradas.reservar');
 Route::get('/comprar/{id}', [\App\Http\Controllers\CompraController::class, 'elegirButaca']);
@@ -48,3 +46,5 @@ Route::post('/finalizar-compra', [CompraController::class, 'finalizarCompra'])->
 Route::get('/compra-exitosa', function () {return view('exito');})->name('compra.exito');
 
 Route::get('/reservas', [CompraController::class, 'misReservas'])->name('mis.reservas');
+
+Route::delete('/entrada/{id}/eliminarReserva', [CompraController::class, 'eliminarReserva'])->name('entrada.eliminar');

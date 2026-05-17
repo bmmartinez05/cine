@@ -10,11 +10,10 @@ class PeliculaController extends Controller
 {
     public function index()
     {
-        $peliculas = Pelicula::all(); // Saca todas las películas de la base de datos
-        return view('cartelera', compact('peliculas')); // Se las manda a una vista llamada 'cartelera'
+        $peliculas = Pelicula::all(); 
+        return view('cartelera', compact('peliculas')); 
     }
 
-    // Esta función solo muestra la página del formulario
     public function create()
     {
         return view('crear_pelicula');
@@ -23,10 +22,8 @@ class PeliculaController extends Controller
     // Esta función recibe los datos del formulario y los guarda en la base de datos
     public function store(Request $request)
     {
-        // Creamos una nueva película en blanco
         $pelicula = new Pelicula();
         
-        // Le rellenamos los datos con lo que el usuario ha escrito en el formulario
         $pelicula->titulo = $request->titulo;
         $pelicula->sinopsis = $request->sinopsis;
         $pelicula->duracion = $request->duracion;
@@ -35,11 +32,9 @@ class PeliculaController extends Controller
         // La guardamos en la base de datos
         $pelicula->save();
 
-        // Redirigimos de vuelta a la cartelera para verla ya añadida
         return redirect('/cartelera');
     }
 
-    // Muestra los detalles de una sola película
     public function show($id)
     {
         $pelicula = Pelicula::findOrFail($id); 

@@ -9,20 +9,17 @@ use App\Models\Sala;
 
 class SesionController extends Controller
 {
-    // Listado de sesiones
     public function index()
     {
         $sesiones = Sesion::all();
         return view('sesiones_index', ['sesiones' => $sesiones]);
     }
 
-    // Formulario para crear nueva sesión
     public function create()
     {
         return view('sesiones_crear');
     }
 
-    // Guardar la sesión en la base de datos
     public function store(Request $request)
     {
         $sesion = new Sesion();

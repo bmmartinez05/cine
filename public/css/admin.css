@@ -1,0 +1,241 @@
+/* ==========================================================================
+   ÁREA DE ADMINISTRACIÓN (Formularios y Tablas)
+   ========================================================================== */
+
+/* --- FORMULARIOS ADMIN  --- */
+.admin-form-contenedor {
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.panel-ancho {
+    max-width: 700px;
+}
+
+.admin-form-encabezado {
+    border-bottom: 2px solid var(--quicksand);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.admin-form-encabezado h1 {
+    color: var(--royal-blue);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-form-encabezado p {
+    color: var(--sapphire);
+    margin: 5px 0 0 0;
+    font-weight: bold;
+}
+
+.admin-form-cuerpo {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f1f5f9;
+    padding: 40px;
+}
+
+.form-espaciado {
+    margin-bottom: 25px;
+}
+
+.form-espaciado-lg {
+    margin-bottom: 35px;
+}
+
+.input-premium {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: var(--royal-blue);
+    font-weight: 600;
+    outline: none;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+.input-premium:focus {
+    border-color: var(--royal-blue);
+}
+
+.textarea-premium {
+    resize: none;
+    font-family: inherit;
+    line-height: 1.5;
+}
+
+.form-ayuda {
+    color: #94a3b8;
+    font-size: 0.75rem;
+    display: block;
+    margin-top: 6px;
+}
+
+.form-acciones-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-cancelar {
+    text-align: center;
+    color: var(--royal-blue);
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: block;
+}
+
+.btn-cancelar:hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+/* --- Listado Sesiones --- */
+.admin-contenedor {
+    padding: 40px 20px;
+}
+
+.admin-card {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-top: 5px solid var(--royal-blue);
+}
+
+.admin-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.admin-cabecera h1 {
+    color: var(--royal-blue);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+.tabla-cine {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 0;
+}
+
+.tabla-cine th {
+    background: var(--royal-blue);
+    color: white;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+}
+
+.tabla-cine td {
+    padding: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tabla-cine tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.poster-miniatura {
+    width: 50px;
+    height: 75px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+}
+
+.poster-miniatura img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.poster-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.5rem;
+}
+
+.texto-destacado-gris {
+    font-weight: bold;
+    color: #94a3b8;
+}
+
+.texto-destacado-azul {
+    font-weight: bold;
+    color: var(--royal-blue);
+}
+
+.etiqueta-sala {
+    background: #f1f5f9;
+    color: var(--sapphire);
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    border: 1px solid #e2e8f0;
+}
+
+.fecha-hora {
+    display: flex;
+    flex-direction: column;
+}
+
+.fecha {
+    color: var(--royal-blue);
+}
+
+.hora {
+    font-size: 0.8rem;
+    color: var(--quicksand);
+}
+
+.tabla-vacia {
+    padding: 60px !important;
+    text-align: center;
+    color: #94a3b8;
+    background: #f8fafc;
+}
+
+.icono-vacio {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* --- RESPONSIVE ADMIN --- */
+
+@media (max-width: 768px) {
+    .card {
+        overflow-x: auto;
+    }
+
+    .tabla-cine {
+        min-width: 600px;
+    }
+}

@@ -10,7 +10,6 @@ class EstrenosController extends Controller
 
     public function index()
     {
-        // Traemos solo las películas donde es_estreno sea true (1)
         $estrenos = Pelicula::where('es_estreno', true)->get();
 
         return view('estrenos', compact('estrenos'));

@@ -1,4 +1,4 @@
-/* --- VARIABLES CORPORATIVAS --- */
+/* --- VARIABLES  --- */
 :root {
     --sapphire: #3C5070;
     --royal-blue: #112250;
@@ -9,7 +9,7 @@
     --rojo-ocupado: #c0392b;
 }
 
-/* --- RESET Y ESTRUCTURA --- */
+/* --- ESTRUCTURA --- */
 body {
     background-color: var(--gris-fondo);
     font-family: 'Segoe UI', sans-serif;
@@ -107,7 +107,7 @@ main {
     border-radius: 5px;
 }
 
-/* --- BUTACAS INTERACTIVAS --- */
+/* --- BUTACAS --- */
 .pantalla {
     background: #333;
     color: white;
@@ -124,7 +124,6 @@ main {
     gap: 8px;
     margin-bottom: 8px;
     flex-wrap: wrap;
-    /* AJUSTE: Permite que las butacas bajen de fila en móviles */
 }
 
 .btn-butaca {
@@ -177,7 +176,6 @@ footer a {
         gap: 15px;
     }
 
-    /* AJUSTE: Header vertical */
     .nav-top {
         margin: 0;
         padding: 0;
@@ -203,9 +201,6 @@ footer a {
         padding: 15px;
     }
 
-    /* AJUSTE: Menos margen en móviles */
-
-    /* AJUSTE: Evita que la tabla de historial rompa el diseño */
     .card {
         overflow-x: auto;
     }

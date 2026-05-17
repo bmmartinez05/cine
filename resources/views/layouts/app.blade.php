@@ -4,30 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cine Premium</title>
-    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}?v={{ time() }}">
+    
+    <link rel="stylesheet" href="{{ asset('css/global.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/vistas.css') }}?v={{ time() }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}?v={{ time() }}">
 </head>
 <body>
 <header>
     <div class="logo">
-        <h2 style="color: white; margin: 0;">CINE <span style="color:var(--quicksand)">TW</span></h2>
+        <h2 class="logo-texto">CINE <span class="logo-destaque">TW</span></h2>
     </div>
 
     <nav class="nav-top">
-        <div class="user-info" style="margin-left: 20px; display: inline-block;">
+        <div class="user-info user-sesion">
             
-            {{-- Comprobamos si hay sesión iniciada manualmente --}}
             @if(Session::has('usuario_dni'))
-                <span style="color: white; font-weight: normal;">Hola, </span>
-                <span style="color: var(--quicksand); font-weight: bold; margin-right: 8px;">{{ Session::get('usuario_nombre') }}</span>
+                <span class="saludo-texto">Hola, </span>
+                <span class="saludo-nombre">{{ Session::get('usuario_nombre') }}</span>
                 
-                {{-- Círculo azul con la inicial del usuario (Hecho con CSS normal, sin Tailwind) --}}
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background-color: #2563eb; color: white; border-radius: 50%; font-weight: bold; font-size: 14px; vertical-align: middle; margin-right: 8px;">
+                <span class="avatar-inicial">
                     {{ substr(Session::get('usuario_nombre'), 0, 1) }}
                 </span>
 
-                <a href="{{ url('/logout-manual') }}" style="font-size: 0.85rem; color: #ff9f9f; text-decoration: underline;">Salir</a>
+                <a href="{{ url('/logout-manual') }}" class="btn-salir">Salir</a>
             
-            {{-- Si NO hay sesión, mostramos Iniciar Sesión --}}
             @else
                 <a href="{{ url('/login') }}">Iniciar Sesión</a>
             @endif
@@ -37,6 +38,10 @@
 </header>
 
     <div class="wrapper">
+        <input type="checkbox" id="menuToggle" class="menu-checkbox" style="display: none;">
+
+        <label for="menuToggle" class="btn-menu-movil"></label>
+
         <aside class="sidebar">
             <a href="{{ url('/inicio') }}">🏠 Inicio</a>
             <a href="{{ url('/sesiones') }}">📅 Sesiones</a>
@@ -45,8 +50,8 @@
             <a href="{{ url('/reservas') }}">🎟️ Mis Reservas</a>
             <a href="{{ url('/perfil') }}">👤 Perfil</a>
             @if(Session::get('usuario_dni') === '12345678Z')
-            <a href="{{ url('/cartelera/crear') }}" class="btn-admin-header">➕ Nueva Película</a>
-            <a href="{{ url('/sesiones/crear') }}" class="btn-admin-header">➕ Nueva Sesión</a>
+                <a href="{{ url('/cartelera/crear') }}" class="btn-admin-header">➕ Nueva Película</a>
+                <a href="{{ url('/sesiones/crear') }}" class="btn-admin-header">➕ Nueva Sesión</a>
             @endif
         </aside>
 

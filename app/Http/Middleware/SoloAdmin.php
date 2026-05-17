@@ -10,7 +10,6 @@ class SoloAdmin
 {
     public function handle(Request $request, Closure $next)
     {
-        // AQUÍ ELIGES: Pon tu DNI o tu correo de administrador
         $dniAdmin = '12345678Z'; 
         $dniSesion = Session::get('usuario_dni');
 
