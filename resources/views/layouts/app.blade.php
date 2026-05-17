@@ -63,7 +63,7 @@
     <footer>
         <p>Cine Trigger Warning &copy; 2026</p>
         <a href="contacto.php">Contacto</a> | 
-        <a href="como_se_hizo.pdf">Informe PDF</a>
+        <a href="{{ asset('como_se_hizo.pdf') }}" target="_blank">Informe PDF</a>
     </footer>
 
     <script>

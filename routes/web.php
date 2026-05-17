@@ -28,7 +28,7 @@ Route::get('/comprar/{id}', [\App\Http\Controllers\CompraController::class, 'ele
 Route::get('/sesiones', [SesionController::class, 'index']);
 Route::get('/login', [AccesoController::class, 'mostrarLogin']);
 Route::post('/login', [AccesoController::class, 'entrar']);
-Route::get('/logout-manual', [AccesoController::class, 'salir']); // Usamos GET para simplificar el botón
+Route::get('/logout-manual', [AccesoController::class, 'salir']); 
 
 Route::get('/registro', [AccesoController::class, 'mostrarRegistro']);
 Route::post('/registro', [AccesoController::class, 'registrar']);
@@ -47,4 +47,4 @@ Route::get('/compra-exitosa', function () {return view('exito');})->name('compra
 
 Route::get('/reservas', [CompraController::class, 'misReservas'])->name('mis.reservas');
 
-Route::delete('/entrada/{id}/eliminarReserva', [CompraController::class, 'eliminarReserva'])->name('entrada.eliminar');
+Route::delete('/entrada/{id}/eliminarReserva', [CompraController::class, 'eliminarReserva'])->name('entrada.eliminarReserva');

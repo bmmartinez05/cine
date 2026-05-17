@@ -405,76 +405,167 @@
     transform: scale(1.1);
 }
 
-/* --- PASARELA DE PAGO --- */
+/* PASARELA DE PAGO */
+
 .pago-contenedor {
-    max-width: 500px;
-    margin: 40px auto;
-    border-top: 5px solid var(--royal-blue);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 500px !important;
+    margin: 40px auto !important;
+    background: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 35px !important;
+    box-sizing: border-box !important;
 }
 
 .pago-titulo {
-    color: var(--royal-blue);
-    text-align: center;
-    margin-top: 0;
+    color: var(--royal-blue) !important;
+    margin-top: 0 !important;
+    margin-bottom: 25px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    letter-spacing: 0.5px !important;
 }
 
 .pago-resumen {
-    background: #f8fafc;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    border: 1px solid var(--quicksand);
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    background-color: #f8fafc !important;
+    border-left: 4px solid var(--royal-blue) !important;
+    padding: 20px !important;
+    border-radius: 4px !important;
+    margin-bottom: 25px !important;
+    box-sizing: border-box !important;
+    text-align: left !important;
 }
 
-.resumen-etiqueta,
-.resumen-asiento {
-    margin: 0;
-    color: #64748b;
-    font-size: 0.9rem;
+.pago-resumen p,
+.pago-resumen h3 {
+    margin: 0 !important;
+}
+
+.resumen-etiqueta {
+    color: #94a3b8 !important;
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    font-weight: bold !important;
 }
 
 .resumen-pelicula {
-    margin: 5px 0;
-    color: var(--sapphire);
+    color: var(--sapphire) !important;
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+}
+
+.resumen-asiento {
+    color: #475569 !important;
+    font-size: 0.95rem !important;
 }
 
 .resumen-total {
-    margin: 10px 0 0 0;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--royal-blue);
+    font-size: 1.15rem !important;
+    font-weight: bold !important;
+    color: var(--royal-blue) !important;
+    margin-top: 4px !important;
+}
+
+.pago-contenedor form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+.pago-contenedor .form-grupo {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+    text-align: left !important;
+}
+
+.pago-contenedor .form-grupo label {
+    color: var(--sapphire) !important;
+    font-weight: bold !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 2px !important;
+}
+
+.pago-contenedor .form-input.input-premium {
+    width: 100% !important;
+    padding: 12px 14px !important;
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 8px !important;
+    color: #1e293b !important;
+    font-weight: 600 !important;
+    outline: none !important;
+    background-color: #ffffff !important;
+    box-sizing: border-box !important;
+    font-size: 1rem !important;
+}
+
+.pago-contenedor .form-input.input-premium:focus {
+    border-color: var(--royal-blue) !important;
 }
 
 .pago-fila-doble {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 25px;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px !important;
+    width: 100% !important;
 }
 
-.flex-2 {
-    flex: 2;
+.pago-fila-doble .flex-2 {
+    flex: 2 !important;
 }
 
-.flex-1 {
-    flex: 1;
+.pago-fila-doble .flex-1 {
+    flex: 1 !important;
 }
 
+/* Botón de pago */
 .btn-pago {
-    background: var(--royal-blue);
-    color: white;
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: 0.3s ease;
+    width: 100% !important;
+    background-color: var(--royal-blue) !important;
+    color: white !important;
+    border: none !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    margin-top: 10px !important;
+    transition: opacity 0.2s !important;
 }
 
 .btn-pago:hover {
-    background: var(--sapphire);
+    opacity: 0.9 !important;
+}
+
+.pago-nota {
+    color: #94a3b8 !important;
+    font-size: 0.75rem !important;
+    text-align: center !important;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+    line-height: 1.4 !important;
+}
+
+@media (max-width: 540px) {
+    .pago-contenedor {
+        margin: 20px 15px !important;
+        padding: 25px 20px !important;
+    }
+
+    .pago-fila-doble {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
 }
 
 /* --- CONFIRMACIÓN --- */

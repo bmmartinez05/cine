@@ -13,6 +13,7 @@
 
     <form action="{{ url('/finalizar-compra') }}" method="POST">
         @csrf
+        {{-- Campos ocultos para no perder la info de la butaca --}}
         <input type="hidden" name="id_sesion" value="{{ $datos['id_sesion'] }}">
         <input type="hidden" name="fila" value="{{ $datos['fila'] }}">
         <input type="hidden" name="columna" value="{{ $datos['columna'] }}">
