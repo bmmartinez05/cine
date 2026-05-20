@@ -60,6 +60,7 @@
         </main>
     </div>
 
+    
     <footer>
         <p>Cine Trigger Warning &copy; 2026</p>
         <a href="contacto.php">Contacto</a> | 
