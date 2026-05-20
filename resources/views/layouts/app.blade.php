@@ -66,12 +66,5 @@
         <a href="{{ asset('como_se_hizo.pdf') }}" target="_blank">Informe PDF</a>
     </footer>
 
-    <script>
-        function seleccionarButaca(elemento) {
-            document.querySelectorAll('.btn-butaca').forEach(b => b.classList.remove('btn-seleccionada'));
-            elemento.classList.add('btn-seleccionada');
-            alert("Has seleccionado la butaca " + elemento.innerText);
-        }
-    </script>
 </body>
 </html>
